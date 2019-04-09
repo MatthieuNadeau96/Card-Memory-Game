@@ -5,7 +5,11 @@
 }
 
 body {
-  background-color: #b8b8b8;
+  background-color: #7c97d4;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-container {
@@ -13,14 +17,20 @@ body {
   height: 640px;
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid white;
-  margin: auto;
+  background-color: #7c97d4;
 }
 
 
 .card {
-  width: 25%;
-  height: 33.333%;
-  border: 2px solid #606060;
-  background-color: white;
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  background-color: #b3bed7;
+  border-radius: 5px;
+  positon: relative;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #bfc6d5;
 }
