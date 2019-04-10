@@ -19,6 +19,7 @@ body {
   flex-wrap: wrap;
   background-color: #7c97d4;
   transform: scale(1);
+  perspective: 1000px;
 }
 
 .card:active {
@@ -34,6 +35,12 @@ body {
   border-radius: 5px;
   positon: relative;
   cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.flipped {
+  transform: rotateY(180deg);
 }
 
 .card:hover {
