@@ -4,21 +4,23 @@ import './App.css';
 import Card from './Card';
 
 class App extends Component {
+
+  state = {
+    totalCards: [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6],
+  }
+
+  flipCard = (side) => {
+    console.log(side + " was flipped")
+  }
+
   render() {
     return (
       <div className="game-container">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {this.state.totalCards.map((side, index) => {
+          return (
+            <Card key={index} side={side} flipCard={() => this.flipCard(side)}/>
+          )
+        })}
       </div>
     );
   }

@@ -18,8 +18,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   background-color: #7c97d4;
+  transform: scale(1);
 }
 
+.card:active {
+  transform: scale(.97);
+  transition: transform .2s;
+}
 
 .card {
   width: calc(25% - 10px);

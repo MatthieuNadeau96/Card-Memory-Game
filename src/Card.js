@@ -4,8 +4,8 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="card">
-        <div className="card-front">Front</div>
+      <div className="card" onClick={this.props.flipCard}>
+        <div>{this.props.side}</div>
       </div>
     );
   }
