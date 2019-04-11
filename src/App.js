@@ -6,27 +6,77 @@ import Card from './Card';
 class App extends Component {
 
   state = {
-    totalCards: [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6],
-    activeCard: -1,
+    cards: {
+      1: {
+        face: 1,
+        flipped: false,
+      },
+      2: {
+        face: 2,
+        flipped: false,
+      },
+      3: {
+        face: 3,
+        flipped: false,
+      },
+      4: {
+        face: 4,
+        flipped: false,
+      },
+      5: {
+        face: 5,
+        flipped: false,
+      },
+      6: {
+        face: 6,
+        flipped: false,
+      },
+      7: {
+        face: 7,
+        flipped: false,
+      },
+      8: {
+        face: 8,
+        flipped: false,
+      },
+      9: {
+        face: 9,
+        flipped: false,
+      },
+      10: {
+        face: 10,
+        flipped: false,
+      },
+      11: {
+        face: 11,
+        flipped: false,
+      },
+      12: {
+        face: 12,
+        flipped: false,
+      },
+    },
   }
 
-  flipCard = (side, i) => {
-    this.setState({
-      activeCard: i,
-    })
-    console.log(side + " was flipped")
+  flipCard = (card) => {
+    const cards = {...this.state.cards}
+    cards[card].flipped = true
+    this.setState(({
+      cards
+    }))
   }
 
   render() {
+    const {cards} = this.state
     return (
       <div className="game-container">
-        {this.state.totalCards.map((side, index) => {
+        {Object.keys(cards).map((card, index) => {
           return (
             <Card
               key={index}
-              side={side}
-              flipCard={() => this.flipCard(side, index)}
-              class={this.state.activeCard === index ? 'card flipped' : 'card'}
+              face={cards[card].face}
+              clicked={() => this.flipCard(card)}
+              class={this.state.cards[card].flipped ? 'card flipped' : 'card'}
             />
           )
         })}
