@@ -88,6 +88,9 @@ class App extends Component {
         backImage: sun,
       },
     },
+    hasFlippedCard: false,
+    firstCard: null,
+    secondCard: null,
   }
 
   flipCard = (card) => {
@@ -96,6 +99,19 @@ class App extends Component {
     this.setState(({
       cards
     }))
+
+    if(!this.state.hasFlippedCard) {
+      this.setState({
+        hasFlippedCard: true,
+        firstCard: card,
+      })
+    } else {
+      this.setState({
+        hasFlippedCard: false,
+        secondCard: card,
+      })
+    }
+
   }
 
   render() {
