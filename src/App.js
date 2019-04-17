@@ -133,15 +133,17 @@ class App extends Component {
           firstCard: null,
           secondCard: null,
         })
-      } else if (firstCard.symbol === secondCard.symbol) {
+      } else if (firstCard.symbol !== secondCard.symbol) {
         // it's not a match
-        cards[firstCard.face].flipped = false
-        cards[secondCard.face].flipped = false
-        this.setState({
-          firstCard,
-          secondCard,
-          cards,
-        })
+        setTimeout(() => {
+          cards[firstCard.face].flipped = false
+          cards[secondCard.face].flipped = false
+
+          this.setState({
+            firstCard: null,
+            secondCard: null,
+          })
+        }, 1000)
       }
     }
 
