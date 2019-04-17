@@ -22,7 +22,7 @@ body {
   perspective: 1000px;
 }
 
-.card:active {
+.anim:active {
   transform: scale(.97);
   transition: transform .2s;
 }

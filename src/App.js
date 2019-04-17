@@ -185,7 +185,7 @@ class App extends Component {
               frontImage={cards[card].frontImage}
               backImage={cards[card].backImage}
               clicked={clickHandler}
-              class={this.state.cards[card].flipped ? 'card flipped' : 'card'}
+              class={this.state.cards[card].flipped ? 'card flipped' : 'card anim'}
             />
           )
         })}
