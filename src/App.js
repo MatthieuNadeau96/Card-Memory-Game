@@ -118,7 +118,6 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-
     const firstCard = {...this.state.firstCard}
     const secondCard = {...this.state.secondCard}
     const cards = {...this.state.cards}
@@ -143,10 +142,9 @@ class App extends Component {
             firstCard: null,
             secondCard: null,
           })
-        }, 1000)
+        }, 800)
       }
     }
-
   }
 
   flipCard = (card) => {
@@ -167,8 +165,6 @@ class App extends Component {
         secondCard: cards[card],
       })
     }
-
-
   }
 
   render() {
