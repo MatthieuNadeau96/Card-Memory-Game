@@ -118,53 +118,63 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const firstCard = {...this.state.firstCard}
-    const secondCard = {...this.state.secondCard}
-    const cards = {...this.state.cards}
-
-    if (this.state.firstCard !== null && this.state.secondCard !== null) {
-      if (firstCard.symbol === secondCard.symbol) {
-        console.log('match')
-        cards[firstCard.face].matchingPair = true
-        cards[secondCard.face].matchingPair = true
-        // it's a match
-        this.setState({
-          firstCard: null,
-          secondCard: null,
-        })
-      } else if (firstCard.symbol !== secondCard.symbol) {
-        // it's not a match
-        setTimeout(() => {
-          cards[firstCard.face].flipped = false
-          cards[secondCard.face].flipped = false
-
-          this.setState({
-            firstCard: null,
-            secondCard: null,
-          })
-        }, 800)
-      }
-    }
+    this.checkForMatch()
   }
 
   flipCard = (card) => {
     const cards = {...this.state.cards}
+    // flips the current card over
     cards[card].flipped = true
-    this.setState(({
-      cards
-    }))
 
     if(!this.state.hasFlippedCard) {
+      // if there isn't a card already flipped over, set this card to the firstCard
       this.setState({
-        hasFlippedCard: true,
         firstCard: cards[card],
+        hasFlippedCard: true,
       })
-    } else {
-      this.setState({
-        hasFlippedCard: false,
-        secondCard: cards[card],
-      })
+      return
     }
+    // set this card as the secondCard
+    this.setState({
+      hasFlippedCard: false, //potential issue with the flip spam bug
+      secondCard: cards[card],
+    })
+  }
+
+  checkForMatch = () => {
+    const { firstCard, secondCard } = this.state
+    // first make sure there are cards to compare
+    if (this.state.firstCard !== null && this.state.secondCard !== null) {
+      const isMatch = firstCard.symbol === secondCard.symbol
+      // check if cards match
+      isMatch ? this.disableCards() : this.unFlipCards()
+    }
+  }
+
+  disableCards = () => {
+    // cards do match
+    const { firstCard, secondCard, cards } = this.state
+    // keeps the cards facing up
+    cards[firstCard.face].matchingPair = true
+    cards[secondCard.face].matchingPair = true
+    this.setState({
+      firstCard: null,
+      secondCard: null,
+    })
+  }
+
+  unFlipCards = () => {
+    // cards don't match
+    const { firstCard, secondCard, cards } = this.state
+    setTimeout(() => {
+      // flips the cards back over
+      cards[firstCard.face].flipped = false
+      cards[secondCard.face].flipped = false
+      this.setState({
+        firstCard: null,
+        secondCard: null,
+      })
+    }, 800)
   }
 
   render() {
@@ -173,7 +183,6 @@ class App extends Component {
       <div className="game-container">
         {Object.keys(cards).map((card, index) => {
           const clickHandler = this.state.cards[card].matchingPair ? null : () => this.flipCard(card)
-
           return (
             <Card
               key={index}
