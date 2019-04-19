@@ -11,7 +11,10 @@ import pawprint from './assets/imgs/pawprint.png';
 import star from './assets/imgs/star.png';
 import sun from './assets/imgs/sun.png';
 
+let lockBoard = false // locks the other cards on the board from flipping
+
 class App extends Component {
+
 
   state = {
     cards: {
@@ -122,10 +125,11 @@ class App extends Component {
   }
 
   flipCard = (card) => {
-    const cards = {...this.state.cards}
+    if(lockBoard) return
+    const { cards } = this.state
+
     // flips the current card over
     cards[card].flipped = true
-
     if(!this.state.hasFlippedCard) {
       // if there isn't a card already flipped over, set this card to the firstCard
       this.setState({
@@ -136,7 +140,7 @@ class App extends Component {
     }
     // set this card as the secondCard
     this.setState({
-      hasFlippedCard: false, //potential issue with the flip spam bug
+      hasFlippedCard: false,
       secondCard: cards[card],
     })
   }
@@ -166,6 +170,8 @@ class App extends Component {
   unFlipCards = () => {
     // cards don't match
     const { firstCard, secondCard, cards } = this.state
+    lockBoard = true
+
     setTimeout(() => {
       // flips the cards back over
       cards[firstCard.face].flipped = false
@@ -174,7 +180,8 @@ class App extends Component {
         firstCard: null,
         secondCard: null,
       })
-    }, 800)
+      lockBoard = false
+    }, 1500)
   }
 
   render() {
