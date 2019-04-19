@@ -125,9 +125,9 @@ class App extends Component {
   }
 
   flipCard = (card) => {
-    if(lockBoard) return
-    const { cards } = this.state
-
+    const { cards, firstCard} = this.state
+    if (lockBoard) return // return if the board is locked
+    if (cards[card] === firstCard) return // returns if the cards is already flipped
     // flips the current card over
     cards[card].flipped = true
     if(!this.state.hasFlippedCard) {
