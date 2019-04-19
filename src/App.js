@@ -12,6 +12,7 @@ import star from './assets/imgs/star.png';
 import sun from './assets/imgs/sun.png';
 
 let lockBoard = false // locks the other cards on the board from flipping
+let randomNumberArray = Array.from({length: 12}, () => Math.floor(Math.random() * 12)) // creates an array of random numbers
 
 class App extends Component {
 
@@ -184,6 +185,13 @@ class App extends Component {
     }, 1500)
   }
 
+  shuffle = (i) => {
+    // assigns each card a random number from randomNumberArray
+    let n = randomNumberArray[i]
+    return n
+  }
+
+
   render() {
     const {cards} = this.state
     return (
@@ -198,6 +206,7 @@ class App extends Component {
               backImage={cards[card].backImage}
               clicked={clickHandler}
               class={this.state.cards[card].flipped ? 'card flipped' : 'card anim'}
+              style={{order: this.shuffle(index)}}
             />
           )
         })}
