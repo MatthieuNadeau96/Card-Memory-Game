@@ -16,10 +16,6 @@ let randomNumberArray = Array.from({length: 12}, () => Math.floor(Math.random() 
 
 class App extends Component {
 
-// TODO: make mobile friendly
-// TODO: add better quality images
-// TODO: add greater difficulties 
-
   state = {
     cards: {
       1: {
