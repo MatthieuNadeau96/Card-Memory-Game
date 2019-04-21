@@ -70,8 +70,13 @@ body {
 @media (max-width: 750px) {
   .game-container {
     width: calc(100vw);
-    height: 100vh;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media (max-height: 670px) {
+  .game-container {
+    height: 100vh;
   }
 }
