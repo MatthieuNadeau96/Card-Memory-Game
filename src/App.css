@@ -7,6 +7,7 @@
 body {
   background-color: #7c97d4;
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,4 +64,14 @@ body {
 
 .back-face {
   transform: rotateY(180deg);
+}
+
+
+@media (max-width: 750px) {
+  .game-container {
+    width: calc(100vw);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
 }
