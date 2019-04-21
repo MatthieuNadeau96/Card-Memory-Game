@@ -1,0 +1,19 @@
+{
+  "main.css": "/Card-Memory-Game/static/css/main.1b6930fc.chunk.css",
+  "main.js": "/Card-Memory-Game/static/js/main.d05ecc66.chunk.js",
+  "main.js.map": "/Card-Memory-Game/static/js/main.d05ecc66.chunk.js.map",
+  "runtime~main.js": "/Card-Memory-Game/static/js/runtime~main.69c5030a.js",
+  "runtime~main.js.map": "/Card-Memory-Game/static/js/runtime~main.69c5030a.js.map",
+  "static/js/2.63cf11a9.chunk.js": "/Card-Memory-Game/static/js/2.63cf11a9.chunk.js",
+  "static/js/2.63cf11a9.chunk.js.map": "/Card-Memory-Game/static/js/2.63cf11a9.chunk.js.map",
+  "index.html": "/Card-Memory-Game/index.html",
+  "precache-manifest.305a969ef587ea4c895a051e8c9fc799.js": "/Card-Memory-Game/precache-manifest.305a969ef587ea4c895a051e8c9fc799.js",
+  "service-worker.js": "/Card-Memory-Game/service-worker.js",
+  "static/css/main.1b6930fc.chunk.css.map": "/Card-Memory-Game/static/css/main.1b6930fc.chunk.css.map",
+  "static/media/atom.png": "/Card-Memory-Game/static/media/atom.04a2737e.png",
+  "static/media/cloud.png": "/Card-Memory-Game/static/media/cloud.48ce5f43.png",
+  "static/media/like.png": "/Card-Memory-Game/static/media/like.5a6c188d.png",
+  "static/media/moon-phase-outline.png": "/Card-Memory-Game/static/media/moon-phase-outline.adf3581c.png",
+  "static/media/pawprint.png": "/Card-Memory-Game/static/media/pawprint.e8521fe5.png",
+  "static/media/star.png": "/Card-Memory-Game/static/media/star.054ad014.png"
+}
